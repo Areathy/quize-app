@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+@import './mixins';
+@import './variables';
+
+
+  body{
+    overscroll-behavior-y: contain;
+    font-family: $font-family;  
+  }
+  a {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  :hover.btn-secondary {
+    color: #B7B7B7;
+    background-color: #e5e2e2;
+    border: 1px solid #BCC6C2;
+  }
