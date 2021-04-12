@@ -23,6 +23,9 @@ export default {
 <style scoped lang="scss">
 #app {
     height: 100vh;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 5px;
   }
   .wait {
     color:green;

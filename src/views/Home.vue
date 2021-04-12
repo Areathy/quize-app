@@ -1,26 +1,26 @@
 <template>
-  <div >
-    <select v-model="country" @click="fetchCountries()">
-      <option v-for="country in countries" :key="country.name" value: country.name >{{country.name}}</option>
-    </select>
-
-
-
-
-
-
-
-    <input
-      type="tel"
-      placeholder="(123) 456-7890"
-      v-model="phone_number"
-      maxlength="16"
-      @input="enforcePhoneFormat()"
-    /> {{phone_number}}
-    <router-link to="/play">play</router-link>
-
-
-    <button @click=" saveContact()">save</button>
+  <div class="page-body">
+    <img src="../assets/img1.jpg" />
+    <div class="phone_number-div">
+      <input
+        type="tel"
+        class="phone-number"
+        placeholder="Phone Number"
+        v-model="phone_number"
+        @input="enforcePhoneFormat()"
+      />
+    </div>
+    <br>
+    <div class="countries">
+      <label for="cars">Please select your country</label><br>
+      <select v-model="country" @click="fetchCountries()">
+        <option v-for="country in countries" :key="country.name" value: country.name >
+          {{country.name}}
+        </option>
+      </select>
+    </div>
+    <br>
+    <div class="submit"><button @click=" saveContact()" class="button">Let's Play</button></div>
   </div>
 </template>
 
@@ -49,7 +49,7 @@ methods: {
       .catch(error => console.log(error))
   },
 
-  enforcePhoneFormat() {
+  enforcePhoneFormat() {      
     let x = this.phone_number
       .replace(/\D/g, "")
       .match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
@@ -70,3 +70,35 @@ methods: {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.page-body {
+  margin-top: 2rem;
+  img {
+    width: 15rem;
+    height: 15rem;
+  }
+  .phone-number {
+    @include input-c();
+  }
+  .countries {
+    label {
+      color: $azure-read;
+    }
+    select {
+      @include input-c();
+    }
+  }
+  button {
+    width: 10rem;
+    height: 2.5rem;
+    background-color: $white;
+    border: 1px solid $azure;
+    border-radius: 0.3rem;
+    color: $azure-read;
+  }
+  button:hover {
+    @include hovering;
+  }  
+}
+</style>

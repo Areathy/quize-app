@@ -1,8 +1,14 @@
-@mixin top-dropdown {
-    color: #B7B7B7;
-    background-color: #ffffff;
-    border: 1px solid #BCC6C2;
-    font-size: 0.75rem;
-    width: 17.5rem;
-    height: 2.625rem;
+@mixin input-c {
+    background-color: $azure;
+    border: none;
+    color: $white;
+    border-radius: 0.3rem;
+    width: 15rem;
+    height: 2.5rem;
+}
+
+@mixin hovering {
+    background-color:rgb(130, 207, 252);
+    border: none;
+    transition: 0.3s;
 }
